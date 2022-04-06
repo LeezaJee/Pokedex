@@ -22,22 +22,28 @@ let pokemonList = [
 	{ name: "Nidoking", height: 1.4, type: ["ground", "poison"] }
 ];
 
-document.write("<ul class: 'pokemon-container'>");
-for (let i = 0; i < pokemonList.length; i++) {
-	if (pokemonList[i].height < 3 && pokemonList[i].height > 1.5) {
-		document.write("<li class= 'pokemon-item'>");
-		document.write("Name: " + pokemonList[i].name +
-			" (Height: " + pokemonList[i].height +
-			" - Type: " + pokemonList[i].type + ") - Wow, that's big!");
-		document.write("</li>");
-	}
-	else {
-		document.write("<li class= 'pokemon-item'>");
-		document.write("Name: " + pokemonList[i].name +
-			" (Height: " + pokemonList[i].height +
-			" - Type: " + pokemonList[i].type + ")");
-		document.write("</li>");
-	}
-}
-document.write("</ul>");
 
+document.write("<ul class= 'pokemon-container'>");
+
+pokemonList.forEach(function(item) {
+
+	if (item.height > 1.4) {
+		document.write(
+		"<li class='pokemon-item'>" + 
+		"Name: " + item.name +
+		" (Height: " + item.height +
+		" - Type: " + item.type + ") - Wow, that's big!" +
+		"</li>"
+		);
+	} else {
+		document.write(
+		"<li class='pokemon-item'>" +
+		"Name: " + item.name +
+		" (Height: " + item.height +
+		" - Type: " + item.type + ")" +
+		"</li>"
+		);
+	}
+})
+
+document.write("</ul>");
