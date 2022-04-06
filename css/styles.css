@@ -81,14 +81,18 @@ body {
     border-radius: 10px;
   }
 
-.pokemon-container {
-  color: #97b3e6;
-}
 
 .pokemon-item {
 display: block;
 font-size: 25px;
 font-family: 'Shadows Into Light', cursive;
+line-height: 1.5;
+padding: 8px 1rem;
+border-radius: 8px;
+box-shadow: 1px 3px 13px #18181822;
+margin: 1rem auto;
+width: 500px;
+list-style-type: none;
 }
 
 .big-pokemon {
