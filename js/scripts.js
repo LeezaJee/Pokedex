@@ -15,6 +15,8 @@ const colors = {
 	normal: '#F5F5F5'
 }
 
+let pokemonRepository = (function() {
+
 let pokemonList = [
 	{ name: "Charmander", height: 0.6, type: ["fire"] },
 	{ name: "Venusaur", height: 2, type: ["grass", "poison"] },
@@ -22,17 +24,33 @@ let pokemonList = [
 	{ name: "Nidoking", height: 1.4, type: ["ground", "poison"] }
 ];
 
+function getAll() {
+	return pokemonList;
+}
+
+    function add(pokemon) {
+       pokemonList.push(pokemon);
+    }
+
+	return {
+		getAll: getAll,
+        add: add
+
+    };
+
+})();
+
 
 document.write("<ul class= 'pokemon-container'>");
 
-pokemonList.forEach(function(item) {
+pokemonRepository.getAll().forEach(function(item) {
 
 	if (item.height > 1.4) {
 		document.write(
 		"<li class='pokemon-item'>" + 
 		"Name: " + item.name +
 		" (Height: " + item.height +
-		" - Type: " + item.type + ") - Wow, that's big!" +
+		" - Type: " + item.type + ") Wow, that's big!" +
 		"</li>"
 		);
 	} else {
