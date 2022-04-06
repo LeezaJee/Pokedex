@@ -30,6 +30,10 @@ function getAll() {
 
     function add(pokemon) {
        pokemonList.push(pokemon);
+	   if (typeof pokemon === 'object' &&
+            Object.keys(pokemon).toString() === 'name,height,type') {
+            return pokemonList.push(pokemon);
+        }
     }
 
 	return {
