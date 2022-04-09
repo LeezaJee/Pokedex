@@ -99,3 +99,8 @@ var pokemonRepository = (function () {
 
 console.log(pokemonRepository.getAll());
 
+//this forEach function will run loop over function below
+pokemonRepository.getAll().forEach(function (pokemon) {
+	//this function will run loop over addListItem function above
+	pokemonRepository.addListItem(pokemon);
+});
