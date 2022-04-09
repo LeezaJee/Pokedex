@@ -27,6 +27,34 @@ let pokemonList = [
 function getAll() {
 	return pokemonList;
 }
+	function addListItem(pokemon) {
+
+		//variable to grab the <ul> tag from the HTML file 
+		let pokemonList = document.querySelector(".pokemon-list");
+
+		//creating <li> list elements for the <ul> 
+		let listPokemon = document.createElement("li");
+
+		//creating a <button>
+		let button = document.createElement("button");
+
+		//inserting text to the just created <button> element
+		button.innerText = pokemon.name;
+
+		//linking a class from CSS to the <button> element
+		button.classList.add("button-class");
+
+		//adding the <button> to the <li> list elements 
+		listPokemon.appendChild(button);
+
+		//adding <li> list elements to the <ul> 
+		pokemonList.appendChild(listPokemon);
+
+		//EventListener to show Pokemon details when button is clicked
+		button.addEventListener('click', function (event) {
+			showDetails(pokemon)
+		});
+	}
 
     function add(pokemon) {
        pokemonList.push(pokemon);
