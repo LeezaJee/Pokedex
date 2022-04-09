@@ -40,6 +40,22 @@ var pokemonRepository = (function () {
 		},
 	];
 
+	function add(pokemon) {
+		if (
+			typeof pokemon === "object" &&
+			"name" in pokemon &&
+			"height" in pokemon &&
+			"types" in pokemon
+		) {
+			repository.push(pokemon);
+		} else {
+			console.log("Pokemon is not correct!");
+		}
+	}
+
+	function getAll() {
+		return repository;
+	}
 
 
 function getAll() {
@@ -74,13 +90,6 @@ function getAll() {
 		});
 	}
 
-    function add(pokemon) {
-       pokemonList.push(pokemon);
-	   if (typeof pokemon === 'object' &&
-            Object.keys(pokemon).toString() === 'name,height,type') {
-            return pokemonList.push(pokemon);
-        }
-    }
 
 	return {
 		getAll: getAll,
