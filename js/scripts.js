@@ -58,9 +58,6 @@ var pokemonRepository = (function () {
 	}
 
 
-function getAll() {
-	return pokemonList;
-}
 	function addListItem(pokemon) {
 
 		//variable to grab the <ul> tag from the HTML file 
@@ -92,13 +89,14 @@ function getAll() {
 
 
 	return {
+		add: add,
 		getAll: getAll,
-        add: add
 
-    };
+	};
 
 })();
 
+console.log(pokemonRepository.getAll());
 
 document.write("<ul class= 'pokemon-container'>");
 
