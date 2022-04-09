@@ -91,6 +91,7 @@ var pokemonRepository = (function () {
 	return {
 		add: add,
 		getAll: getAll,
+		addListItem: addListItem
 
 	};
 
@@ -98,27 +99,3 @@ var pokemonRepository = (function () {
 
 console.log(pokemonRepository.getAll());
 
-document.write("<ul class= 'pokemon-container'>");
-
-pokemonRepository.getAll().forEach(function(item) {
-
-	if (item.height > 1.4) {
-		document.write(
-		"<li class='pokemon-item'>" + 
-		"Name: " + item.name +
-		" (Height: " + item.height +
-		" - Type: " + item.type + ") Wow, that's big!" +
-		"</li>"
-		);
-	} else {
-		document.write(
-		"<li class='pokemon-item'>" +
-		"Name: " + item.name +
-		" (Height: " + item.height +
-		" - Type: " + item.type + ")" +
-		"</li>"
-		);
-	}
-})
-
-document.write("</ul>");
