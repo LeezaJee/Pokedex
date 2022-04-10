@@ -70,6 +70,39 @@ var pokemonRepository = (function () {
 		});
 	}
 
+	//function to fetch data from API and add it to the repository
+	function loadList() {
+		//fetch the data from the URL in form of a promise 
+		return fetch(apiUrl).then(function (response) {
+			return response.json(); //convert response into JSON
+		}).then(function (json) {
+			//loop over the "results" (key) of the JSON (pokemon list of the API)
+			json.results.forEach(function (item) {
+				let pokemon = {
+					name: item.name,
+					detailsUrl: item.url
+				};
+				add(pokemon);
+			});
+		}).catch(function (e) {
+			console.error(e);
+		})
+	}
+
+
+	function loadDetails(item) {
+		let url = item.detailsUrl;
+		return fetch(url).then(function (response) {
+			return response.json();
+		}).then(function (details) {
+			// Now we add the details to the item
+			item.imageUrl = details.sprites.front_default;
+			item.height = details.height;
+			item.types = details.types;
+		}).catch(function (e) {
+			console.error(e);
+		});
+	}
 
 	return {
 		add: add,
