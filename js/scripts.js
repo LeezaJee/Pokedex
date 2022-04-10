@@ -17,28 +17,8 @@ const colors = {
 
 var pokemonRepository = (function () {
 
-	let repository = [
-		{
-			name: "Charmander",
-			height: 0.6,
-			type: ["fire"]
-		},
-		{
-			name: "Venusaur",
-			height: 2,
-			type: ["grass", "poison"]
-		},
-		{
-			name: "Wartortle",
-			height: 1,
-			type: ["water"]
-		},
-		{
-			name: "Nidoking",
-			height: 1.4,
-			type: ["ground", "poison"]
-		},
-	];
+	let repository = [];
+	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 	function add(pokemon) {
 		if (
@@ -107,4 +87,9 @@ console.log(pokemonRepository.getAll());
 pokemonRepository.getAll().forEach(function (pokemon) {
 	//this function will run loop over addListItem function above
 	pokemonRepository.addListItem(pokemon);
+	//this forEach function will run loop over function below
+	pokemonRepository.getAll().forEach(function (pokemon) {
+		//this function will run loop over addListItem function above
+		pokemonRepository.addListItem(pokemon);
+	});
 });
