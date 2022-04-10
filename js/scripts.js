@@ -36,11 +36,6 @@ var pokemonRepository = (function () {
 		return repository;
 	}
 
-
-	function showDetails(pokemon) {
-		console.log(pokemon);
-	}
-
 	function addListItem(pokemon) {
 
 		//variable to grab the <ul> tag from the HTML file 
@@ -101,6 +96,13 @@ var pokemonRepository = (function () {
 			item.types = details.types;
 		}).catch(function (e) {
 			console.error(e);
+		});
+	}
+
+	//show pokemon data in in the console 
+	function showDetails(item) {
+		pokemonRepository.loadDetails(item).then(function () {
+			console.log(item);
 		});
 	}
 
