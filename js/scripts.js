@@ -119,10 +119,8 @@ var pokemonRepository = (function () {
 
 console.log(pokemonRepository.getAll());
 
-//this forEach function will run loop over function below
-pokemonRepository.getAll().forEach(function (pokemon) {
-	//this function will run loop over addListItem function above
-	pokemonRepository.addListItem(pokemon);
+//load the data from the Pokemon API
+pokemonRepository.loadList().then(function () {
 	//this forEach function will run loop over function below
 	pokemonRepository.getAll().forEach(function (pokemon) {
 		//this function will run loop over addListItem function above
