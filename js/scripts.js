@@ -60,7 +60,7 @@ var pokemonRepository = (function () {
 		pokemonList.appendChild(listPokemon);
 
 		//EventListener to show Pokemon details when button is clicked
-		button.addEventListener('click', function (event) {
+		button.addEventListener("click", function (event) {
 			showDetails(pokemon)
 		});
 	}
