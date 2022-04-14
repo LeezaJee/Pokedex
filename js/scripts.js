@@ -12,7 +12,7 @@ var pokemonRepository = (function () {
         ) {
           pokemonList.push(pokemon);
         } else {
-          console.log("pokemon is not correct");
+          console.log("This is not a valid Pokemon!");
         }
       }
 
