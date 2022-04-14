@@ -134,6 +134,7 @@ var pokemonRepository = (function () {
 
 		let pokemonImage = document.createElement('img');
 		pokemonImage.src = pokemon.imageUrl;
+	pokemonImage.classList.add('image');
 
 
 		let pokemonTypes = document.createElement('p');
