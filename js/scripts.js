@@ -1,6 +1,6 @@
 var pokemonRepository = (function () {
-
-	let repository = [];
+	var pokemonList = [];
+	let modalContainer = document.querySelector('#modal-container');
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 	function add(pokemon) {
