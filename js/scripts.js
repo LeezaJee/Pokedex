@@ -3,20 +3,20 @@ var pokemonRepository = (function () {
 	let modalContainer = document.querySelector('#modal-container');
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-	  // function to add new pokemons to pokemonList
-	  function add(pokemon) {
-        if (
-          typeof pokemon === "object" &&
-          "name" in pokemon,
-          "detailsUrl" in pokemon
-        ) {
-          pokemonList.push(pokemon);
-        } else {
-          console.log("This is not a valid Pokemon!");
-        }
-      }
+	// function to add new pokemons to pokemonList
+	function add(pokemon) {
+		if (
+			typeof pokemon === "object" &&
+			"name" in pokemon,
+			"detailsUrl" in pokemon
+		) {
+			pokemonList.push(pokemon);
+		} else {
+			console.log("This is not a valid Pokemon!");
+		}
+	}
 
-	  function getAll() {
+	function getAll() {
 		return pokemonList;
 	}
 
@@ -114,7 +114,7 @@ var pokemonRepository = (function () {
 
 
 	function showModal(pokemon) {
-		
+
 		//clear all existing modal content (previous info)
 		modalContainer.innerHTML = '';
 
@@ -134,8 +134,8 @@ var pokemonRepository = (function () {
 		//take .is-visible class from the modal
 		closeButtonElement.addEventListener('click', hideModal);
 
-		
-	
+
+
 
 		let pokemonName = document.createElement('h1');
 		pokemonName.innerText = pokemon.name.toUpperCase();
@@ -145,28 +145,28 @@ var pokemonRepository = (function () {
 
 		let pokemonImage = document.createElement('img');
 		pokemonImage.src = pokemon.imageUrl;
-	pokemonImage.classList.add('image');
+		pokemonImage.classList.add('image');
 
 
 		let pokemonTypes = document.createElement('p');
 		let types = pokemon.types;
 
-		   // Function to get all of the pokemon types
-		   function getType (item){
-			if (types.length == 1){
-			  let type = item.type;
-			  pokemonTypes.innerText = "Type: " + type.name;
-			} else if (types.indexOf(item) == 0 && types.indexOf(item) + 1 < types.length){
-			  let type = item.type;
-			  pokemonTypes.innerText += "Types: " + type.name + ", ";
-			} else if (types.indexOf(item) + 1 < types.length){
-			  let type = item.type;
-			  pokemonTypes.innerText += type.name + ", ";
+		// Function to get all of the pokemon types
+		function getType(item) {
+			if (types.length == 1) {
+				let type = item.type;
+				pokemonTypes.innerText = "Type: " + type.name;
+			} else if (types.indexOf(item) == 0 && types.indexOf(item) + 1 < types.length) {
+				let type = item.type;
+				pokemonTypes.innerText += "Types: " + type.name + ", ";
+			} else if (types.indexOf(item) + 1 < types.length) {
+				let type = item.type;
+				pokemonTypes.innerText += type.name + ", ";
 			} else {
-			  let type = item.type;
-			  pokemonTypes.innerText += " " + type.name ;
+				let type = item.type;
+				pokemonTypes.innerText += " " + type.name;
 			}
-		  }
+		}
 		types.forEach(getType)
 
 
@@ -191,7 +191,7 @@ var pokemonRepository = (function () {
 
 	//show pokemon data in in the console 
 	function showDetails(pokemon) {
-	loadDetails(pokemon).then(function () {
+		loadDetails(pokemon).then(function () {
 			console.log(pokemon);
 			showModal(pokemon);
 		});
