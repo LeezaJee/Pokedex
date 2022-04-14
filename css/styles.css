@@ -95,10 +95,6 @@ display: inline;
   text-align: center;
 }
 
-.pokemon-name {
-  text-transform: uppercase;
-}
-
 .modal-close {
   float: right;
   -webkit-appearance: none;
