@@ -111,12 +111,10 @@ var pokemonRepository = (function () {
 		});
 	}
 
-<<<<<<< HEAD
 
 
 	function showModal(pokemon) {
 		
-
 		//clear all existing modal content (previous info)
 		modalContainer.innerHTML = '';
 
@@ -188,13 +186,16 @@ var pokemonRepository = (function () {
 	function hideModal() {
 		var modalContainer = document.querySelector('#modal-container');
 		modalContainer.classList.remove('is-visible');
-=======
+	}
+
+
 	//show pokemon data in in the console 
-	function showDetails(item) {
-		pokemonRepository.loadDetails(item).then(function () {
-			console.log(item);
+	function showDetails(pokemon) {
+	loadDetails(pokemon).then(function () {
+			console.log(pokemon);
+			showModal(pokemon);
 		});
->>>>>>> parent of 6b7f57f (deleted const colors (available in CSS))
+
 	}
 
 	return {
