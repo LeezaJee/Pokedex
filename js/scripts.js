@@ -198,6 +198,24 @@ var pokemonRepository = (function () {
 
 	}
 
+	//close the modal by pressing ESC ('key' goes 'down') 
+	//(e) event handling function (on event, object is created).
+	//(e) is the object handler (object is made accessible)
+	window.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+			hideModal();
+		}
+	});
+
+
+	//close modal by clicking on the overlay - otherwise it will also close by clicking on the model itself
+	modalContainer.addEventListener('click', (e) => {
+		let target = e.target;
+		if (target === modalContainer) {
+			hideModal();
+		}
+	});
+
 	return {
 		add: add,
 		getAll: getAll,
