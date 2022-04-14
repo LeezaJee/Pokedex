@@ -15,6 +15,32 @@ var pokemonRepository = (function () {
           console.log("pokemon is not correct");
         }
       }
+
+	  function getAll() {
+		return pokemonList;
+	}
+
+	//create AJAX/Promise
+	//function to fetch data from API and add it to pokemonList
+	function loadList() {
+		//fetch the data from the URL in form of a promise 
+		return fetch(apiUrl)
+			.then(function (response) {
+				return response.json(); //convert response into JSON
+			})
+			.then(function (json) {
+				//loop over the "results" (key) of the JSON (pokemon list of the API)
+				json.results.forEach(function (item) {
+					var pokemon = {
+						name: item.name,
+						detailsUrl: item.url,
+					};
+					add(pokemon);
+				});
+			})
+			.catch(function (e) {
+				console.error(e);
+			});
 	}
 
 
