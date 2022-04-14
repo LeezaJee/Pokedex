@@ -164,7 +164,6 @@ var pokemonRepository = (function () {
 		modal.appendChild(pokemonImage);
 		modal.appendChild(pokemonName);
 		modal.appendChild(pokemonHeight);
-		modal.appendChild(pokemonImage);
 		modal.appendChild(pokemonTypes);
 		//add modal <div> to parent modal.container <div>
 		modalContainer.appendChild(modal);
