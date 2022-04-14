@@ -127,9 +127,7 @@ var pokemonRepository = (function () {
 	
 
 		let pokemonName = document.createElement('h1');
-		pokemonName.innerText = pokemon.name;
-		pokemonName.classList.add('pokemon-name');
-		
+		pokemonName.innerText = pokemon.name.toUpperCase();
 
 		let pokemonHeight = document.createElement('p');
 		pokemonHeight.innerText = "Height: " + pokemon.height;
