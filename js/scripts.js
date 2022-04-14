@@ -1,3 +1,20 @@
+const colors = {
+	fire: '#FDDFDF',
+	grass: '#DEFDE0',
+	electric: '#FCF7DE',
+	water: '#DEF3FD',
+	ground: '#f4e7da',
+	rock: '#d5d5d4',
+	fairy: '#fceaff',
+	poison: '#98d7a5',
+	bug: '#f8d5a3',
+	dragon: '#97b3e6',
+	psychic: '#eaeda1',
+	flying: '#F5F5F5',
+	fighting: '#E6E0D4',
+	normal: '#F5F5F5'
+}
+
 var pokemonRepository = (function () {
 	var pokemonList = [];
 	let modalContainer = document.querySelector('#modal-container');
@@ -48,7 +65,6 @@ var pokemonRepository = (function () {
 		pokemonList.push(pokemon);
 	}
 
-
 	function addListItem(pokemon) {
 
 		//variable to grab the <ul> tag from the HTML file 
@@ -59,8 +75,10 @@ var pokemonRepository = (function () {
 
 		//creating a <button>
 		let button = document.createElement("button");
+
 		//inserting text to the just created <button> element
-		button.innerText = pokemon.name.toUpperCase();
+		button.innerText = pokemon.name;
+
 		//linking a class from CSS to the <button> element
 		button.classList.add("button-class");
 
@@ -76,14 +94,25 @@ var pokemonRepository = (function () {
 		});
 	}
 
-
-	//show pokemon data in in the console 
-	function showDetails(pokemon) {
-		loadDetails(pokemon).then(function () {
-			console.log(pokemon);
-			showModal(pokemon);
-		});
+	//function to fetch data from API and add it to the repository
+	function loadList() {
+		//fetch the data from the URL in form of a promise 
+		return fetch(apiUrl).then(function (response) {
+			return response.json(); //convert response into JSON
+		}).then(function (json) {
+			//loop over the "results" (key) of the JSON (pokemon list of the API)
+			json.results.forEach(function (item) {
+				let pokemon = {
+					name: item.name,
+					detailsUrl: item.url
+				};
+				add(pokemon);
+			});
+		}).catch(function (e) {
+			console.error(e);
+		})
 	}
+
 
 	function loadDetails(item) {
 		let url = item.detailsUrl;
@@ -91,14 +120,15 @@ var pokemonRepository = (function () {
 			return response.json();
 		}).then(function (details) {
 			// Now we add the details to the item
-			item.imageUrl = details.sprites.other.dream_world.front_default;
+			item.imageUrl = details.sprites.front_default;
 			item.height = details.height;
 			item.types = details.types;
 		}).catch(function (e) {
-			console.log(e);
+			console.error(e);
 		});
 	}
 
+<<<<<<< HEAD
 
 
 	function showModal(pokemon) {
@@ -175,27 +205,14 @@ var pokemonRepository = (function () {
 	function hideModal() {
 		var modalContainer = document.querySelector('#modal-container');
 		modalContainer.classList.remove('is-visible');
+=======
+	//show pokemon data in in the console 
+	function showDetails(item) {
+		pokemonRepository.loadDetails(item).then(function () {
+			console.log(item);
+		});
+>>>>>>> parent of 6b7f57f (deleted const colors (available in CSS))
 	}
-
-
-	//close the modal by pressing ESC ('key' goes 'down') 
-	//(e) event handling function (on event, object is created).
-	//(e) is the object handler (object is made accessible)
-	window.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-			hideModal();
-		}
-	});
-
-
-	//close modal by clicking on the overlay - otherwise it will also close by clicking on the model itself
-	modalContainer.addEventListener('click', (e) => {
-		let target = e.target;
-		if (target === modalContainer) {
-			hideModal();
-		}
-	});
-
 
 	return {
 		add: add,
@@ -203,25 +220,18 @@ var pokemonRepository = (function () {
 		addListItem: addListItem,
 		loadList: loadList,
 		loadDetails: loadDetails,
-		showModal: showModal,
-		hideModal: hideModal,
+		showDetails: showDetails
 	};
 
-})(); //IIFE wrap
+})();
 
 console.log(pokemonRepository.getAll());
 
-//loadList method will fetch data from API then add each Pokemon in the fetched date to pokemonList with the add function
+//load the data from the Pokemon API
 pokemonRepository.loadList().then(function () {
-	// Now the data is loaded!
 	//this forEach function will run loop over function below
 	pokemonRepository.getAll().forEach(function (pokemon) {
 		//this function will run loop over addListItem function above
 		pokemonRepository.addListItem(pokemon);
 	});
 });
-
-
-
-
-
