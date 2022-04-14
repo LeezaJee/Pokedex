@@ -59,8 +59,8 @@ var pokemonRepository = (function () {
 		//creating a <button>
 		let button = document.createElement("button");
 
-		//inserting text to the just created <button> element
-		button.innerText = pokemon.name;
+		//inserting text to the just created <button> element 
+		button.innerText = pokemon.name.toUpperCase();
 
 		//linking a class from CSS to the <button> element
 		button.classList.add("button-class");
