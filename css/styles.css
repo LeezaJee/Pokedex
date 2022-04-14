@@ -104,6 +104,13 @@ display: inline;
   text-decoration: underline;
 }
 
+.image {
+width: 200px;
+align-items: center;
+
+}
+
+
 .modal h2 {
   margin-top: 0;
 }
