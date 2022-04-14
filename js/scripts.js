@@ -17,8 +17,9 @@ var pokemonRepository = (function () {
       }
 	}
 
-	function getAll() {
-		return repository;
+
+	function add(pokemon) {
+		pokemonList.push(pokemon);
 	}
 
 
