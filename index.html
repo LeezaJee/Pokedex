@@ -49,6 +49,38 @@
   </nav>
 </header>
 
+<main>
+
+  <div id="pokemon-list" class="row list-group"></div>
+
+    <!-- Modal -->
+    <!-- this div is the dark transparent background when the model is opened -->
+    <div class="modal fade" id="pokemonModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+      <!-- the actual modal box -->
+      <div class="modal-dialog" role="document">
+        <!-- this div is wrapped around all the content inside modal -->
+        <div class="modal-content">
+          <!-- to change the styles of the modal, Bootstrap has some additional divs that you can place inside the modal-content div—for example, modal-header, modal-body, and modal-footer. By default, each of these elements is separated by a thin border -->
+          <div class="modal-header">
+            <h5 class="modal-title" id="Pokemon"></h5>
+            <!-- adds x to the upper right corner to close modal -->
+            <!-- &times; means multiplication sign (x) -->
+            <!-- data-dismiss="modal", setting up an event listener to hide the modal if this button is clicked. -->
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
+          </div>
+          <div class="modal-body"></div>
+        </div>
+        <div class="modal-footer">
+      </div>
+      </div>
+    </div>
+
+  </main>
+
+  
+
+  
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
