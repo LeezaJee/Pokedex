@@ -16,11 +16,38 @@
 </head>
 
 <body>
-  <h1>Pokedex</h1>
+  <header class="page-header w-100">
+  <!-- navigation bar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <img src="img/pokeball.svg" width="40" height="40" alt="" />
+    <a class="navbar-brand px-3" href="index.html">Pokedex</a>
 
-  <ul class="pokemon-list"></ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div id="modal-container"></div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active px-3">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+          <li class="nav-item px-3">
+            <a class="nav-link" href="https://pokeapi.co/" target="_blank">API</a>
+          </li>
+          <li class="nav-item px-3">
+            <a class="nav-link" href="https://leezajee.github.io/portfolio.website/" target="_blank">Portfolio</a>
+          </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </nav>
+</header>
 
   <script src="js/promise-polyfill.js"></script>
   <script src="js/fetch-polyfill.js"></script>
