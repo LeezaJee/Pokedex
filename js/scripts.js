@@ -1,29 +1,52 @@
 var pokemonRepository = (function () {
+
 	var pokemonList = [];
-	let modalContainer = document.querySelector('#modal-container');
+	let modalContainer = document.querySelector('#pokemonModal');
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 	// function to add new pokemons to pokemonList
 	function add(pokemon) {
-		if (
-			typeof pokemon === "object" &&
-			"name" in pokemon,
-			"detailsUrl" in pokemon
-		) {
-			pokemonList.push(pokemon);
-		} else {
-			console.log("This is not a valid Pokemon!");
+		if (typeof pokemon === "object") {
+			return pokemonList.push(pokemon);
 		}
 	}
 
-	function getAll() {
+	 // Access array of Pokemon
+	 function getAll() {
 		return pokemonList;
-	}
+	  }
 
 
+	  // Function to capitalize first letter of pokemon name
+	  function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
 
 	function addListItem(pokemon) {
+		//Create listItem divs, and button
+        let listItem = document.createElement("div");
+        let button = document.createElement("button");
+
+		   //set bootstrap classes to divs
+		   $(listItem).addClass("list-group-item");
+
+		   // Classes and attributes for button
+		   $(button).text(pokemon.name);
+		   $(button).addClass("btn btn-block pokemon-btn");
+		   $(button).attr("type", "button");
+		   $(button).attr("data-toggle", "modal");
+		   $(button).attr("data-target", "#pokemonModal");
+   
+		   // Append items to DOM elements
+		   $(listItem).append(button);
+		   $("#pokemon-list").append(listItem);
+   
+		   // Show details of clicked Pokemon
+		   $(button).on("click", () => {
+			   showDetails(pokemon);
+		   });
+	   }
 
 	//function to fetch data from API and add it to the repository
 	function loadList() {
@@ -34,14 +57,14 @@ var pokemonRepository = (function () {
 			//loop over the "results" (key) of the JSON (pokemon list of the API)
 			json.results.forEach(function (item) {
 				let pokemon = {
-					name: item.name,
+					name: capitalizeFirstLetter(item.name),
 					detailsUrl: item.url
 				};
 				add(pokemon);
 			});
 		}).catch(function (e) {
-			console.error(e);
-		})
+			console.log(e);
+		});
 	}
 
 
@@ -54,14 +77,42 @@ var pokemonRepository = (function () {
 			item.imageUrl = details.sprites.other.dream_world.front_default;
 			item.height = details.height;
 			item.types = details.types;
+			return item;
 		}).catch(function (e) {
-			console.error(e);
+			console.log(e);
 		});
 	}
 
 
-
+// Create modal with details
 	function showModal(pokemon) {
+		let modalBody = $(".modal-body");
+		let modalTitle = $(".modal-title");
+
+		//clear existing content every time you open a new modal
+		modalTitle.empty();
+		modalBody.empty();
+
+		//creating element for name in modal content 
+		let nameElement = $("<h1>" + pokemon.name + "</h1>");
+		//creating img in modal content 
+		let imageElement = $('<img class="modal-img" style="width:50%">');
+		imageElement.attr("src", pokemon.imageUrl);
+		$(imageElement).addClass("image");
+
+		//creating element for height in modal content 
+		let heightElement = $("<p>" + "height : " + pokemon.height + "</p>");
+		
+
+		//creating element for types in modal content 
+		let typesElement = $("<p>" + "types : " + pokemon.types[0].type.name + "</p>");
+		
+		
+		
+		modalTitle.append(nameElement);
+		modalBody.append(imageElement);
+		modalBody.append(heightElement);
+		modalBody.append(typesElement);
 	}
 
 
