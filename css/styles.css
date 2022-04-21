@@ -15,7 +15,7 @@
 	--normal: #F5F5F5;
   }
 
-* {
+  * {
     box-sizing: border-box;
   }
 
@@ -25,16 +25,35 @@ body {
     font-family: 'Manrope', sans-serif;
   }
 
+  #pokemon-list {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
+.btn {
+  text-transform: capitalize;
+  font-size: 18px;
 }
 
+.list-group-item {
+  border: none;
   
+  margin: 3px;
+  border-radius: 5px;
+  background-color: lightgray;
+  border: solid black;
 }
 
+.modal-content {
+  justify-content: center;
   text-align: center;
 }
 
 .image {
+  margin-bottom: 30px;
 }
 
+.list-group {
+  flex-direction: row;
+}
