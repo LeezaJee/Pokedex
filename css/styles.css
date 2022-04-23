@@ -34,16 +34,36 @@ body {
 .btn {
   text-transform: capitalize;
   font-size: 18px;
+  font-weight: bold;
   margin: 2px;
+  padding: 7px;
+}
+
+.list-group-item:first-child {
+  padding: 5px;
+  margin: 20px 20px 20px 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: black solid;
+  display: flex;
 }
 
 .list-group-item {
-  border: none;
   padding: 5px;
-  margin: 3px;
+  margin: 20px 20px 20px 20px;
   border-radius: 8px;
-  background-color: lightgray;
-  border: gray solid;
+  background-color: transparent;
+  border: black solid;
+  display: flex;
+}
+
+.list-group-item:last-child {
+  padding: 5px;
+  margin: 20px 20px 20px 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: black solid;
+  display: flex;
 }
 
 .modal-content {
