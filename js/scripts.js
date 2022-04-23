@@ -23,30 +23,6 @@ var pokemonRepository = (function () {
     }
 
 
-	function addListItem(pokemon) {
-		//Create listItem divs, and button
-        let listItem = document.createElement("div");
-        let button = document.createElement("button");
-
-		   //set bootstrap classes to divs
-		   $(listItem).addClass("list-group-item");
-
-		   // Classes and attributes for button
-		   $(button).text(pokemon.name);
-		   $(button).addClass("btn btn-block pokemon-btn");
-		   $(button).attr("type", "button");
-		   $(button).attr("data-toggle", "modal");
-		   $(button).attr("data-target", "#pokemonModal");
-   
-		   // Append items to DOM elements
-		   $(listItem).append(button);
-		   $("#pokemon-list").append(listItem);
-   
-		   // Show details of clicked Pokemon
-		   $(button).on("click", () => {
-			   showDetails(pokemon);
-		   });
-	   }
 
 	//function to fetch data from API and add it to the repository
 	function loadList() {
@@ -136,6 +112,31 @@ var pokemonRepository = (function () {
 		showDetails: showDetails,
 		showModal: showModal,
 	};
+  function addListItem(pokemon) {
+    let ul = document.querySelector(".list-group");
+    //Create listItem divs, and button
+    let li = document.createElement("li");
+    let button = document.createElement("button");
+
+    //set bootstrap classes to divs
+    $(li).addClass("list-group-item col-xl-2 col-lg-3 col-sm-4");
+
+    // Classes and attributes for button
+    $(button).text(pokemon.name);
+    $(button).addClass("btn btn-block pokemon-btn");
+    $(button).attr("type", "button");
+    $(button).attr("data-toggle", "modal");
+    $(button).attr("data-target", "#pokemonModal");
+
+    // Append items to DOM elements
+    $(li).append(button);
+    $(ul).append(li);
+
+    // Show details of clicked Pokemon
+    $(button).on("click", () => {
+      showDetails(pokemon);
+    });
+  }
 })();
 
 //load the data from the Pokemon API
