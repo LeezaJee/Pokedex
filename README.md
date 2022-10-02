@@ -2,12 +2,11 @@
 a Pokémon database that lets users look up different Pokémon and view their height and types.
 
 ## Objective
-The objective was, to build a small web application with HTML, CSS, and JavaScript that loads data from an external API and enables the viewing of data points in detail.
-It was build as an IIFE(immediately invoced funcion expression) to make only limited amount of functions accessible.
+The objective was, to build a small web application with HTML, CSS, and JavaScript that loads data from an external API and enables the viewing of data points in detail. It was build as an IIFE(immediately invoced funcion expression) to make only limited amount of functions accessible.
 
-### Built With
-
-This project was built with HTML, CSS and JavaScript from scratch. Towards the end, the frontend appearance was replaced with Bootstrap UI Framework and jQuery Library.
+## Built With
+This project was built with HTML, CSS and JavaScript from scratch. 
+Towards the end, the frontend appearance was replaced with Bootstrap UI Framework and jQuery Library.
 
 * HTML
 * CSS
@@ -16,15 +15,12 @@ This project was built with HTML, CSS and JavaScript from scratch. Towards the e
 * [JQuery](https://jquery.com)
 * [External PokeAPI](https://pokeapi.co/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ## Features
 
 A user can 
-- View a collection of pokemons
-- Search for specific name
-- See pokemon details
-
+- view a collection of Pokémons
+- search for a specific Pokémon name
+- view a Pokémon's details
 
 ## Getting Started
 
