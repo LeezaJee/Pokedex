@@ -21,7 +21,7 @@
 
 body {
   background: #efefbb;
-  background: linear-gradient(to right, #d4d3dd, #efefbb);
+  background: linear-gradient(to bottom, #d4d3dd, #efefbb);
   font-family: "Manrope", sans-serif;
 }
 
