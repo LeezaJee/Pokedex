@@ -1,13 +1,43 @@
-# Pokedex
+# Pokedex App
 a Pokémon database that lets users look up different Pokémon and view their height and types.
 
 ## Objective
-to build a small web application with HTML, CSS and JavaScript that loads data from an external API and enables viewing of detailed data 
+The objective was, to build a small web application with HTML, CSS, and JavaScript that loads data from an external API and enables the viewing of data points in detail.
+It was build as an IIFE(immediately invoced funcion expression) to make only limited amount of functions accessible.
 
-## Dependencies
-JavaScript
-jQuery
-BootStrap
+### Built With
 
-## API
-This project uses the API and documentation from [PokeApi](https://pokeapi.co/).
+This project was built with HTML, CSS and JavaScript from scratch. Towards the end, the frontend appearance was replaced with Bootstrap UI Framework and jQuery Library.
+
+* HTML
+* CSS
+* JavaScript
+* [Bootstrap](https://getbootstrap.com)
+* [JQuery](https://jquery.com)
+* [External PokeAPI](https://pokeapi.co/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Features
+
+A user can 
+- View a collection of pokemons
+- Search for specific name
+- See pokemon details
+
+
+## Getting Started
+
+```bash
+git clone https://github.com/LeezaJee/Pokedex.git
+cd Pokedex
+npm install
+```
+
+## Screenshots
+
+<img src="img/pokedex.png" height="400" width="800" >
+<img src="img/pokedex2.png" height="400" width="800" >
+
+
+
